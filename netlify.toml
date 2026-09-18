@@ -1,0 +1,16 @@
+# Netlify config. Nothing to build — the site is plain HTML, CSS and JS,
+# so Netlify just publishes the repository root as-is.
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/data/*.json"
+  [headers.values]
+    # Content edits should show up immediately, not after a cache expiry.
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

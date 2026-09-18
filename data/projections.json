@@ -1,0 +1,64 @@
+{
+  "_readme": "Two separate things on one page. 'ticker' is the running feed of short takes — newest first, one object each, keep them short. 'picksBoard' is the standing list of season-long calls; edit 'pick' in place and push the old value into 'history' so the change is visible instead of silent.",
+  "ticker": {
+    "_howToPost": "Copy the last entry, put it at the top of the array, change the id, date and text. Nothing else required. 'tag' is optional.",
+    "entries": [
+      { "id": "t-2026-09-17-a", "date": "2026-09-17T21:40:00", "tag": "NFL", "text": "[COPY NEEDED — her take]" },
+      { "id": "t-2026-09-15-a", "date": "2026-09-15T18:05:00", "tag": "NFL", "text": "[COPY NEEDED — her take]" },
+      { "id": "t-2026-09-11-a", "date": "2026-09-11T23:12:00", "tag": "Cards", "text": "[COPY NEEDED — her take]" },
+      { "id": "t-2026-09-07-a", "date": "2026-09-07T20:00:00", "tag": "NBA", "text": "[COPY NEEDED — her take]" }
+    ]
+  },
+  "picksBoard": {
+    "title": "The Picks Board",
+    "subtitle": "Season-long calls. On the record, timestamped, no quiet edits.",
+    "lastUpdated": "2026-09-16",
+    "rows": [
+      {
+        "award": "Super Bowl Champion",
+        "league": "NFL",
+        "pick": "Detroit Lions",
+        "note": "[COPY NEEDED — optional one-liner on why]",
+        "history": [
+          { "pick": "Baltimore Ravens", "changedOn": "2026-09-16" },
+          { "pick": "San Francisco 49ers", "changedOn": "2026-08-30" }
+        ]
+      },
+      {
+        "award": "MVP",
+        "league": "NFL",
+        "pick": "Jalen Hurts",
+        "note": null,
+        "history": []
+      },
+      {
+        "award": "Offensive Rookie of the Year",
+        "league": "NFL",
+        "pick": "[COPY NEEDED — pick not locked in]",
+        "note": null,
+        "history": []
+      },
+      {
+        "award": "Defensive Rookie of the Year",
+        "league": "NFL",
+        "pick": "Abdul Carter",
+        "note": null,
+        "history": [{ "pick": "Mykel Williams", "changedOn": "2026-09-09" }]
+      },
+      {
+        "award": "Coach of the Year",
+        "league": "NFL",
+        "pick": "Dan Campbell",
+        "note": null,
+        "history": []
+      },
+      {
+        "award": "NBA MVP",
+        "league": "NBA",
+        "pick": "Shai Gilgeous-Alexander",
+        "note": null,
+        "history": []
+      }
+    ]
+  }
+}

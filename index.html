@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keely's House of Cards</title>
+<meta name="description" content="Graded and raw sports cards, live pack opens every Tuesday, and a hand-signed thank-you card with every order.">
+<meta name="theme-color" content="#14120f">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Big+Shoulders+Display:wght@700;800&family=Nothing+You+Could+Do&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="index.html">
+<a class="skip-link" href="#main">Skip to content</a>
+<div data-demo-strip></div>
+<header data-site-header></header>
+
+<noscript>
+  <div class="shell"><p class="notice notice--error">This site reads its catalog, schedule and takes from JSON files with JavaScript. With JavaScript off you'll need to email her directly — the address is at the bottom of the page.</p></div>
+</noscript>
+
+<main id="main">
+
+  <!-- Hero. Asymmetric on purpose: type block left, slab right. -->
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div>
+        <p class="hero__kicker label" data-hero-kicker></p>
+        <h1 class="hero__wordmark">
+          <span class="hero__script" data-hero-script></span>
+          <span class="hero__title" data-hero-title></span>
+        </h1>
+        <div class="hero__statement" data-hero-statement></div>
+        <p class="lede" data-hero-sub style="margin-top:1rem"></p>
+        <div class="hero__actions">
+          <a class="btn" href="shop.html">See what's for sale</a>
+          <a class="btn btn--ghost" href="live-opens.html">Tuesday pack opens</a>
+        </div>
+        <dl class="hero__stats" data-hero-stats></dl>
+      </div>
+
+      <div>
+        <!-- Graded-slab mock. Sits here as the one skeuomorphic flourish
+             above the fold; the frame stays empty until real photos exist. -->
+        <div class="slab">
+          <div class="slab__label">
+            <div>
+              <div class="slab__grader" data-slab-grader>House of Cards</div>
+              <div class="slab__desc" data-slab-desc>Loading the case&hellip;</div>
+            </div>
+            <div class="slab__grade" data-slab-grade>&mdash;</div>
+          </div>
+          <div class="slab__window" data-slab-window></div>
+        </div>
+        <p class="hero__slab-caption" data-slab-caption></p>
+
+        <div class="signed-note" style="margin-top:1.25rem">
+          <p class="signed-note__head" data-signed-head></p>
+          <p data-signed-body></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Tuesday, stated up front so nobody has to hunt for it. -->
+  <section class="section shell" aria-labelledby="tuesday-h">
+    <h2 class="visually-hidden" id="tuesday-h">This week's pack open</h2>
+    <div data-tuesday-stub></div>
+  </section>
+
+  <!-- Four sections as a roster list, not three icon cards. -->
+  <section class="section shell" aria-labelledby="sections-h">
+    <div class="section-head">
+      <span class="section-head__num">§</span>
+      <h2 class="display section-head__title" id="sections-h">Everything here</h2>
+    </div>
+    <div class="index-list" data-section-index></div>
+  </section>
+
+  <!-- A short pull from the catalog. Full grid lives on the shop page. -->
+  <section class="section shell" aria-labelledby="case-h">
+    <div class="section-head">
+      <span class="section-head__num">01</span>
+      <h2 class="display section-head__title" id="case-h">In the case</h2>
+      <p class="section-head__aside">A few of the singles up right now. <a href="shop.html">Full shop &rarr;</a></p>
+    </div>
+    <div class="binder"><div class="binder__grid" data-featured-grid></div></div>
+  </section>
+
+</main>
+
+<footer class="site-footer" data-site-footer></footer>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projections by Vibes</title>
+<meta name="description" content="Keely's running feed of short takes, plus the standing picks board for the season's major awards.">
+<meta name="theme-color" content="#14120f">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Big+Shoulders+Display:wght@700;800&family=Nothing+You+Could+Do&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="projections.html">
+<a class="skip-link" href="#main">Skip to content</a>
+<div data-demo-strip></div>
+<header data-site-header></header>
+<noscript>
+  <div class="shell"><p class="notice notice--error">This page builds itself from <code>data/projections.json</code>, so it needs JavaScript.</p></div>
+</noscript>
+
+<main id="main">
+  <div class="shell">
+    <div class="page-head">
+      <p class="label">03 &middot; Projections by vibes</p>
+      <h1 class="display page-head__title">Projections<br>by Vibes</h1>
+      <p class="lede page-head__sub">No models. No spreadsheets. Two things: the takes as they happen, and the season-long calls she has to live with.</p>
+    </div>
+  </div>
+
+  <div class="shell section projections-grid">
+    <!-- The ticker and the picks board stay separate on purpose. -->
+    <section aria-labelledby="ticker-h">
+      <div class="section-head">
+        <span class="section-head__num">&sect;</span>
+        <h2 class="display section-head__title" id="ticker-h">The Ticker</h2>
+        <p class="section-head__aside">Newest first. Short by design.</p>
+      </div>
+      <div class="ticker" data-ticker></div>
+    </section>
+
+    <section aria-labelledby="picks-h">
+      <div class="picks">
+        <div class="picks__head">
+          <h2 class="picks__title" id="picks-h" data-picks-title>The Picks Board</h2>
+          <p class="statline" style="margin-top:.4rem" data-picks-sub></p>
+          <p style="margin:.6rem 0 0"><span class="stamp" data-picks-stamp></span></p>
+        </div>
+        <div data-picks-rows></div>
+        <p class="muted" style="font-family:var(--narrow);font-size:.8rem;margin:1rem 0 0">
+          Changed picks stay on the board with a line through them. No quiet edits.
+        </p>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="site-footer" data-site-footer></footer>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/projections.js"></script>
+</body>
+</html>

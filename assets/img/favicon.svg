@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 70" role="img" aria-label="Keely's House of Cards">
+  <!-- A card: cream stock, ink border, one clipped corner, foil corner mark. -->
+  <path d="M0 0h40l10 10v60H0z" fill="#f2ecdf"/>
+  <path d="M40 0l10 10H40z" fill="#a3803c"/>
+  <path d="M0 0h40l10 10v60H0z" fill="none" stroke="#14120f" stroke-width="3"/>
+  <rect x="7" y="16" width="36" height="47" fill="none" stroke="#14120f" stroke-width="2"/>
+  <text x="25" y="52" font-family="Impact, 'Arial Narrow', sans-serif" font-size="34" font-weight="700"
+        text-anchor="middle" fill="#14120f">K</text>
+</svg>

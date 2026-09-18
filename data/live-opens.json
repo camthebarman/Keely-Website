@@ -1,0 +1,90 @@
+{
+  "_readme": "Tuesday pack opens. Add the next few weeks to 'opens' and delete them as they pass — the page finds the next upcoming date automatically and treats the rest as 'later this month'. Set archive.enabled to false to hide the results archive entirely.",
+  "schedule": {
+    "weekday": "Tuesday",
+    "time": "7:30 PM",
+    "timezone": "CT",
+    "recurringNote": "Every Tuesday, same time. If a week gets skipped it gets posted on Instagram first."
+  },
+  "watch": {
+    "_readme": "Where she streams. Reorder to change which one is listed as primary. Add or remove platforms as she moves around.",
+    "platforms": [
+      { "platform": "Instagram Live", "handle": "@keelyshouseofcards", "url": "https://instagram.com/keelyshouseofcards", "primary": true },
+      { "platform": "TikTok Live", "handle": "@keelyshouseofcards", "url": "https://tiktok.com/@keelyshouseofcards", "primary": false }
+    ]
+  },
+  "howItWorks": [
+    { "step": "Buy a spot", "text": "Every open is split into spots. A spot is a team, a division, or a random slot depending on the break — it says which on the listing." },
+    { "step": "Spots lock Tuesday", "text": "Sales close 30 minutes before she goes live. Random spots get assigned on stream so you can watch it happen." },
+    { "step": "She opens it live", "text": "Packs get opened on camera. Whatever your spot hits is yours, hit or whiff." },
+    { "step": "It ships that week", "text": "Cards go out in penny sleeves and top loaders, with a signed thank-you card in the envelope." }
+  ],
+  "opens": [
+    {
+      "id": "open-2026-09-22",
+      "date": "2026-09-22",
+      "time": "7:30 PM",
+      "timezone": "CT",
+      "sport": "NFL",
+      "product": "2025 Panini Prizm Football — Hobby Box",
+      "breakType": "Pick your team",
+      "buyIn": 45,
+      "spotsTotal": 32,
+      "spotsLeft": 11,
+      "status": "open",
+      "description": "[COPY NEEDED — one or two lines on what's in this box and why she picked it]"
+    },
+    {
+      "id": "open-2026-09-29",
+      "date": "2026-09-29",
+      "time": "7:30 PM",
+      "timezone": "CT",
+      "sport": "NFL",
+      "product": "2025 Donruss Optic Football — 2 Blaster Boxes",
+      "breakType": "Random team",
+      "buyIn": 25,
+      "spotsTotal": 32,
+      "spotsLeft": 26,
+      "status": "open",
+      "description": null
+    },
+    {
+      "id": "open-2026-10-06",
+      "date": "2026-10-06",
+      "time": "7:30 PM",
+      "timezone": "CT",
+      "sport": "NBA",
+      "product": "2025-26 NBA Hoops — Hobby Box",
+      "breakType": "Pick your team",
+      "buyIn": 30,
+      "spotsTotal": 30,
+      "spotsLeft": 30,
+      "status": "open",
+      "description": null
+    },
+    {
+      "id": "open-2026-10-13",
+      "date": "2026-10-13",
+      "time": "7:30 PM",
+      "timezone": "CT",
+      "sport": "NFL",
+      "product": "[COPY NEEDED — product not picked yet]",
+      "breakType": "TBD",
+      "buyIn": null,
+      "spotsTotal": null,
+      "spotsLeft": null,
+      "status": "announced",
+      "description": null
+    }
+  ],
+  "archive": {
+    "enabled": true,
+    "note": "Biggest hits from past opens. Optional — set enabled to false and this section disappears.",
+    "results": [
+      { "date": "2026-09-15", "product": "2025 Panini Select Football — Hobby Box", "buyer": "Danielle R.", "pulled": "Jayden Daniels Silver Prizm", "sport": "NFL" },
+      { "date": "2026-09-15", "product": "2025 Panini Select Football — Hobby Box", "buyer": "Marcus T.", "pulled": "Bijan Robinson Tie-Dye /25", "sport": "NFL" },
+      { "date": "2026-09-08", "product": "2025 Topps Chrome Baseball — Hobby Box", "buyer": "Ana P.", "pulled": "Paul Skenes Gold Refractor /50", "sport": "MLB" },
+      { "date": "2026-09-01", "product": "2025 Donruss Football — 3 Blasters", "buyer": "Kev", "pulled": "Caleb Williams Downtown", "sport": "NFL" }
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Shop</title>
+<meta name="description" content="Singles for sale — graded and raw NFL, NBA, MLB and NHL cards. Every order ships with a hand-signed thank-you card.">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#14120f">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Big+Shoulders+Display:wght@700;800&family=Nothing+You+Could+Do&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="shop.html">
+<a class="skip-link" href="#main">Skip to content</a>
+<div data-demo-strip></div>
+<header data-site-header></header>
+<noscript>
+  <div class="shell"><p class="notice notice--error">This page builds itself from the JSON files in <code>data/</code>, so it needs JavaScript. Her email address is at the bottom of the page.</p></div>
+</noscript>
+
+<main id="main">
+  <div class="shell">
+    <div class="page-head">
+      <p class="label">01 &middot; The shop</p>
+      <h1 class="display page-head__title">Singles</h1>
+      <div class="page-head__meta">
+        <span class="chip" data-count-chip>&mdash;</span>
+        <span class="chip chip--foil">Graded &amp; raw</span>
+        <span class="chip">NFL &middot; NBA &middot; MLB &middot; NHL</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="shell section--tight">
+    <!-- The signed-card promise gets stated once on this page, up here,
+         rather than repeated on every thumbnail. -->
+    <div class="signed-note">
+      <p class="signed-note__head" data-signed-head></p>
+      <p data-signed-body></p>
+    </div>
+  </div>
+
+  <div class="shell">
+    <form class="toolbar" data-filters aria-label="Filter and sort the catalog">
+      <div class="field">
+        <label for="f-search">Search</label>
+        <input type="search" id="f-search" name="q" placeholder="Player, team, set&hellip;" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="f-sport">Sport</label>
+        <select id="f-sport" name="sport"><option value="">All sports</option></select>
+      </div>
+      <div class="field">
+        <label for="f-team">Team</label>
+        <select id="f-team" name="team"><option value="">All teams</option></select>
+      </div>
+      <div class="field">
+        <label for="f-sort">Sort</label>
+        <select id="f-sort" name="sort">
+          <option value="newest">Newest listed</option>
+          <option value="price-asc">Price, low to high</option>
+          <option value="price-desc">Price, high to low</option>
+          <option value="year-desc">Year, newest first</option>
+          <option value="year-asc">Year, oldest first</option>
+          <option value="player">Player A&ndash;Z</option>
+        </select>
+      </div>
+      <div class="toolbar__row">
+        <div class="flex-row">
+          <div class="field">
+            <label for="f-price">Price</label>
+            <select id="f-price" name="price">
+              <option value="">Any price</option>
+              <option value="0-50">Under $50</option>
+              <option value="50-150">$50 &ndash; $150</option>
+              <option value="150-400">$150 &ndash; $400</option>
+              <option value="400-">$400 and up</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-status">Availability</label>
+            <select id="f-status" name="status">
+              <option value="available">Available only</option>
+              <option value="">Show everything</option>
+              <option value="sold">Sold archive</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-grade">Grading</label>
+            <select id="f-grade" name="grade">
+              <option value="">Graded &amp; raw</option>
+              <option value="graded">Graded only</option>
+              <option value="raw">Raw only</option>
+            </select>
+          </div>
+        </div>
+        <div class="flex-row">
+          <p class="result-count" data-result-count aria-live="polite">&mdash;</p>
+          <button class="btn btn--ghost btn--sm" type="button" data-reset>Reset</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="shell section--tight">
+    <div class="binder">
+      <h2 class="visually-hidden">Cards for sale</h2>
+      <div class="binder__grid" data-shop-grid></div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer" data-site-footer></footer>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/shop.js"></script>
+</body>
+</html>

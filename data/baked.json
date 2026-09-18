@@ -1,0 +1,17 @@
+{
+  "_readme": "Baked goods gallery plus the in-person show schedule. Items are grouped on the page by the 'show' field, newest show first. No online ordering here — these sell at the table.",
+  "intro": "[COPY NEEDED — two lines on the baking, and that it's at-show only]",
+  "items": [
+    { "id": "b-lemon-crinkle", "name": "Lemon crinkle cookies", "description": "[COPY NEEDED — short description]", "show": "Heartland Card Show", "date": "2026-09-06", "photo": null },
+    { "id": "b-funfetti-mix", "name": "Funfetti cake mix jars", "description": "[COPY NEEDED — short description]", "show": "Heartland Card Show", "date": "2026-09-06", "photo": null },
+    { "id": "b-brownie-slab", "name": "Brown butter brownie slab", "description": "[COPY NEEDED — short description]", "show": "Heartland Card Show", "date": "2026-09-06", "photo": null },
+    { "id": "b-snickerdoodle", "name": "Snickerdoodles", "description": "[COPY NEEDED — short description]", "show": "Tri-County Sports Card Expo", "date": "2026-08-16", "photo": null },
+    { "id": "b-choc-chip-mix", "name": "Chocolate chip cookie mix jars", "description": "[COPY NEEDED — short description]", "show": "Tri-County Sports Card Expo", "date": "2026-08-16", "photo": null },
+    { "id": "b-banana-bread", "name": "Banana bread loaves", "description": "[COPY NEEDED — short description]", "show": "Summer Slab Jam", "date": "2026-07-12", "photo": null }
+  ],
+  "upcomingShows": [
+    { "name": "Riverside Card & Collectibles Show", "location": "Riverside Community Center, Hall B", "date": "2026-09-27", "time": "9 AM – 3 PM", "note": "Table 14. Cards and cookies both." },
+    { "name": "Heartland Card Show — Fall", "location": "Heartland Expo Center", "date": "2026-10-11", "time": "10 AM – 4 PM", "note": null },
+    { "name": "Holiday Slab Market", "location": "[COPY NEEDED — venue not confirmed]", "date": "2026-11-21", "time": "TBD", "note": null }
+  ]
+}

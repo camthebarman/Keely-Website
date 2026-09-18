@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart &amp; Checkout</title>
+<meta name="description" content="Your cart — shop singles and pack-open spots together. Shipping details and order summary; payment is not wired up yet.">
+<meta name="theme-color" content="#14120f">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Big+Shoulders+Display:wght@700;800&family=Nothing+You+Could+Do&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="cart.html">
+<a class="skip-link" href="#main">Skip to content</a>
+<div data-demo-strip></div>
+<header data-site-header></header>
+<noscript>
+  <div class="shell"><p class="notice notice--error">The cart is held in your browser with JavaScript, so this page needs it switched on.</p></div>
+</noscript>
+
+<main id="main">
+  <div class="shell">
+    <div class="page-head">
+      <p class="label">Cart &amp; checkout</p>
+      <h1 class="display page-head__title">Your order</h1>
+      <p class="lede page-head__sub">Cards and pack-open spots go through the same checkout. One signed thank-you card per order.</p>
+    </div>
+  </div>
+
+  <div class="shell checkout">
+    <div>
+      <section aria-labelledby="items-h">
+        <div class="section-head">
+          <span class="section-head__num">01</span>
+          <h2 class="display section-head__title" id="items-h">In the cart</h2>
+        </div>
+        <div class="line-items" data-lines></div>
+        <p style="margin-top:1rem"><a class="btn btn--ghost btn--sm" href="shop.html">Keep looking</a></p>
+      </section>
+
+      <!-- Shipping details. Held in localStorage so a refresh doesn't lose them. -->
+      <section class="section" aria-labelledby="ship-h" data-ship-section>
+        <div class="section-head">
+          <span class="section-head__num">02</span>
+          <h2 class="display section-head__title" id="ship-h">Where it ships</h2>
+        </div>
+        <form data-checkout-form novalidate>
+          <fieldset class="fieldset">
+            <legend>Who's getting it</legend>
+            <div class="field-row field-row--2">
+              <div class="field"><label for="c-name">Full name</label><input id="c-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" autocomplete="email" required></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset" style="margin-top:1.25rem">
+            <legend>Shipping address</legend>
+            <div class="field"><label for="c-addr1">Street address</label><input id="c-addr1" name="address1" autocomplete="address-line1" required></div>
+            <div class="field"><label for="c-addr2">Apt, unit, etc. <span class="muted">(optional)</span></label><input id="c-addr2" name="address2" autocomplete="address-line2"></div>
+            <div class="field-row field-row--3">
+              <div class="field"><label for="c-city">City</label><input id="c-city" name="city" autocomplete="address-level2" required></div>
+              <div class="field"><label for="c-state">State</label><input id="c-state" name="state" autocomplete="address-level1" required></div>
+              <div class="field"><label for="c-zip">ZIP</label><input id="c-zip" name="zip" inputmode="numeric" autocomplete="postal-code" required></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="fieldset" style="margin-top:1.25rem">
+            <legend>Anything she should know</legend>
+            <div class="field">
+              <label for="c-notes">Note with your order <span class="muted">(optional)</span></label>
+              <textarea id="c-notes" name="notes" placeholder="Who to make the thank-you card out to, team preference for a random spot, etc."></textarea>
+            </div>
+          </fieldset>
+
+          <div class="section--tight" data-form-status aria-live="polite"></div>
+
+          <!-- ================================================================
+               PAYMENT — STUB ONLY.
+               Nothing charges a card yet. The placeholder below is where a
+               processor gets wired in; see assets/js/cart.js -> startPayment().
+               ================================================================ -->
+          <div class="pay-stub" data-pay-stub>
+            <p class="pay-stub__head">Payment provider coming soon</p>
+            <p>Card payments aren't switched on yet. Fill this in and send it over — she'll reply with a payment link and hold your cards in the meantime.</p>
+          </div>
+
+          <div class="flex-row" style="margin-top:1rem">
+            <button class="btn" type="submit" data-submit>Send this order</button>
+            <button class="btn btn--ghost btn--sm" type="button" data-clear>Empty the cart</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <aside aria-labelledby="sum-h">
+      <div class="summary">
+        <div class="section-head" style="margin-bottom:.5rem">
+          <span class="section-head__num">03</span>
+          <h2 class="display section-head__title" id="sum-h" style="font-size:1.8rem">Summary</h2>
+        </div>
+        <dl class="summary__rows" data-summary-rows></dl>
+        <div class="summary__total">
+          <span class="label">Total</span>
+          <span class="summary__total-value" data-summary-total>$0</span>
+        </div>
+        <div class="signed-note" style="margin-top:1.25rem">
+          <p class="signed-note__head" data-signed-head></p>
+          <p data-signed-body></p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site-footer" data-site-footer></footer>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/cart.js"></script>
+</body>
+</html>

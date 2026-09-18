@@ -1,0 +1,40 @@
+{
+  "_readme": "Global site settings. Edit the strings here and every page picks them up. Anything still reading [COPY NEEDED ...] shows as a marked placeholder on the site until it is replaced.",
+  "brand": {
+    "name": "Keely's House of Cards",
+    "shortName": "House of Cards",
+    "wordmarkLine1": "Keely's",
+    "wordmarkLine2": "House of Cards",
+    "established": "2025"
+  },
+  "demoMode": true,
+  "statement": "[COPY NEEDED — one sentence, Keely's voice: what this is and who runs it]",
+  "heroKicker": "Graded & raw sports cards",
+  "heroSub": "[COPY NEEDED — two short lines under the wordmark on the home page]",
+  "signedPromise": {
+    "short": "Every order ships with a hand-signed thank-you card.",
+    "long": "Every single purchase — a card out of the shop or a spot in a Tuesday pack open — ships with a thank-you card signed by hand. Not printed. Signed.",
+    "signature": "Keely"
+  },
+  "contact": {
+    "email": "hello@keelyshouseofcards.com",
+    "emailLabel": "hello@keelyshouseofcards.com",
+    "note": "[COPY NEEDED — how fast she usually replies, anything else people should know before emailing]"
+  },
+  "social": [
+    { "platform": "Instagram", "handle": "@keelyshouseofcards", "url": "https://instagram.com/keelyshouseofcards" },
+    { "platform": "TikTok", "handle": "@keelyshouseofcards", "url": "https://tiktok.com/@keelyshouseofcards" },
+    { "platform": "Facebook", "handle": "Keely's House of Cards", "url": "https://facebook.com/keelyshouseofcards" }
+  ],
+  "shipping": {
+    "domesticFlat": 5,
+    "freeOver": 150,
+    "note": "Flat-rate shipping inside the US. Orders over $150 ship free."
+  },
+  "sections": [
+    { "num": "01", "title": "Shop", "href": "shop.html", "blurb": "Singles, graded and raw. NFL mostly." },
+    { "num": "02", "title": "Live Pack Opens", "href": "live-opens.html", "blurb": "Every Tuesday. Buy your spot ahead of time." },
+    { "num": "03", "title": "Projections by Vibes", "href": "projections.html", "blurb": "Her takes, and the picks board she has to live with." },
+    { "num": "04", "title": "Baked", "href": "baked.html", "blurb": "Cake mixes and baked goods she hauls to shows." }
+  ]
+}

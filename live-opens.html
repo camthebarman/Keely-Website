@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Pack Opens</title>
+<meta name="description" content="Live pack opens every Tuesday. Buy your spot ahead of time, watch her rip it live, and your cards ship that week with a hand-signed thank-you card.">
+<meta name="theme-color" content="#14120f">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Narrow:wght@400;600;700&family=Big+Shoulders+Display:wght@700;800&family=Nothing+You+Could+Do&display=swap">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body data-page="live-opens.html">
+<a class="skip-link" href="#main">Skip to content</a>
+<div data-demo-strip></div>
+<header data-site-header></header>
+<noscript>
+  <div class="shell"><p class="notice notice--error">This page builds itself from <code>data/live-opens.json</code>, so it needs JavaScript.</p></div>
+</noscript>
+
+<main id="main">
+  <div class="shell">
+    <div class="page-head">
+      <p class="label">02 &middot; Live pack opens</p>
+      <h1 class="display page-head__title">Every Tuesday</h1>
+      <p class="lede page-head__sub" data-schedule-note></p>
+      <div class="page-head__meta" data-watch-chips></div>
+    </div>
+  </div>
+
+  <!-- This week's board. Departures-board treatment: the date is the headline. -->
+  <section class="shell section" aria-labelledby="next-h">
+    <h2 class="visually-hidden" id="next-h">This week's open</h2>
+    <div data-next-open></div>
+  </section>
+
+  <!-- How it works, for anyone who has never bought into a break. -->
+  <section class="shell section" id="how" aria-labelledby="how-h">
+    <div class="section-head">
+      <span class="section-head__num">&sect;</span>
+      <h2 class="display section-head__title" id="how-h">How a pack open works</h2>
+      <p class="section-head__aside">If you've never bought into one, this is the whole thing.</p>
+    </div>
+    <ol class="steps" data-how-it-works></ol>
+  </section>
+
+  <!-- The rest of the calendar. -->
+  <section class="shell section" aria-labelledby="sched-h">
+    <div class="section-head">
+      <span class="section-head__num">&sect;</span>
+      <h2 class="display section-head__title" id="sched-h">On the calendar</h2>
+    </div>
+    <div class="opens-list" data-opens-list></div>
+  </section>
+
+  <!-- Optional: results archive. Hidden entirely when archive.enabled is false. -->
+  <section class="shell section" data-archive-wrap hidden aria-labelledby="arch-h">
+    <div class="section-head">
+      <span class="section-head__num">&sect;</span>
+      <h2 class="display section-head__title" id="arch-h">Past opens</h2>
+      <p class="section-head__aside" data-archive-note></p>
+    </div>
+    <div class="table-scroll"><table class="ledger" data-archive></table></div>
+  </section>
+</main>
+
+<footer class="site-footer" data-site-footer></footer>
+<script src="assets/js/site.js"></script>
+<script src="assets/js/live-opens.js"></script>
+</body>
+</html>
