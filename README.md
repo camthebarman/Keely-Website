@@ -212,3 +212,37 @@ gold used only for rarity and signed cues, and one saturated pine green for acti
 
 Mobile-first throughout, real `alt` text on every image, keyboard-focusable
 everything, and it stays legible with the fonts still loading.
+
+---
+
+## Dicebound — the text adventure at `/game/`
+
+A separate, self-contained page: a Dungeons & Dragons-style solo text adventure.
+Open `game/index.html` on the deployed site (e.g. `https://<site>/game/`). It shares
+nothing with the card shop — no data files, no styles — so it can't break it.
+
+**Playing:** make a character (ancestry, class, background, ability scores,
+skills, a written description that paints a rough portrait), then type what you
+do. Risky actions roll a d20 + your modifier against a DC set by how hard the
+*task* is, so trying something your character is bad at can fail. The first
+10–15 turns are quiet; after that something happens every few turns. XP → levels
+→ more HP, new powers, ability boosts; quest bosses at levels 4, 7 and 10; 0 HP
+means death saves.
+
+**The Dungeon Master:** by default a built-in offline DM (keyword-based) runs the
+game. For a real DM, open *AI Dungeon Master settings* and paste an Anthropic API
+key — then Claude reads each action, sets the check, and narrates. The key is
+stored only in that browser and sent only to Anthropic; each turn makes two API
+calls billed to that key. The rules engine does all dice and math either way —
+Claude never decides numbers.
+
+```
+game/index.html            The page (title, character creation, game)
+game/game.css              Styles
+game/js/data.js            Races, classes, powers, monsters, loot, regions
+game/js/engine.js          Rules: checks, combat, XP/levels, pacing director
+game/js/narrator-ai.js     Claude DM (Anthropic SDK, loaded from jsDelivr)
+game/js/narrator-offline.js  Offline DM + description → portrait traits
+game/js/portrait.js        Painterly canvas portrait
+game/js/app.js             UI glue, saving (localStorage), export/import
+```

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dicebound — a solo text adventure</title>
+<meta name="description" content="A Dungeons & Dragons-style text adventure in your browser. Make a character, get a painted portrait, type what you do, and roll a d20 against the odds.">
+<meta name="theme-color" content="#16110d">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+<noscript><p class="noscript">Dicebound runs entirely in your browser and needs JavaScript switched on.</p></noscript>
+
+<!-- ============================================================ title -->
+<section id="screen-title" class="screen screen--title" hidden>
+  <div class="title-card">
+    <p class="kicker">A solo text adventure</p>
+    <h1 class="wordmark">Dicebound</h1>
+    <p class="tagline">Make a hero. Type what you do. The dice decide the rest.</p>
+    <div class="title-actions">
+      <button class="btn btn--primary" data-action="new">New adventure</button>
+      <button class="btn" data-action="continue" hidden>Continue <span data-continue-name></span></button>
+      <button class="btn btn--ghost" data-action="settings">AI Dungeon Master settings</button>
+    </div>
+    <p class="dm-status" data-dm-status></p>
+
+    <details class="howto">
+      <summary>How to play</summary>
+      <ul>
+        <li><strong>Type anything.</strong> "I sneak past the guard", "I try to lift the portcullis", "I ask the innkeeper about the barrow." There are no menus to pick from.</li>
+        <li><strong>Risky things get a roll.</strong> The DM sets a difficulty (DC) for the <em>task</em>. You roll a d20 and add your modifier for the skill. Meet or beat the DC and you succeed.</li>
+        <li><strong>Your character matters.</strong> A wizard can try to bend iron bars — but with a weak Strength they'll probably fail. Play to your strengths.</li>
+        <li><strong>A quiet start.</strong> The first 10–15 turns are calm: explore, talk, find your feet. After that, something happens every few turns — fights, traps, strangers, treasure.</li>
+        <li><strong>Level up.</strong> Earn XP from fights, clever checks and good roleplay. Levels bring hit points, new powers and ability boosts. Bosses tied to your quest appear at levels 4, 7 and 10.</li>
+        <li><strong>Death is real.</strong> Drop to 0 HP and you roll death saves. Three failures and your story ends.</li>
+      </ul>
+    </details>
+  </div>
+</section>
+
+<!-- ============================================================ creation -->
+<section id="screen-create" class="screen screen--create" hidden>
+  <header class="create-head">
+    <button class="btn btn--ghost btn--small" data-action="back-title">&larr; Back</button>
+    <h2 class="display">Create your hero</h2>
+  </header>
+
+  <form id="create-form" class="create-grid" novalidate>
+    <div class="create-main">
+
+      <fieldset class="panel">
+        <legend><span class="step">1</span> Who are you?</legend>
+        <div class="row">
+          <label class="field grow">Name
+            <input name="name" type="text" maxlength="40" autocomplete="off" placeholder="e.g. Wren Ashgrove" required>
+          </label>
+          <label class="field">Pronouns
+            <select name="pronouns">
+              <option value="they/them">they/them</option>
+              <option value="she/her">she/her</option>
+              <option value="he/him">he/him</option>
+            </select>
+          </label>
+        </div>
+        <label class="field">Describe your hero — looks, clothes, personality
+          <textarea name="description" rows="4" maxlength="800" placeholder="A wiry half-orc with a shaved head, a scar across one eye and green-grey skin. Wears battered leather and a red scarf. Soft-spoken, but has a temper."></textarea>
+        </label>
+        <p class="hint">Your description paints the portrait and shapes how the Dungeon Master writes you.</p>
+      </fieldset>
+
+      <fieldset class="panel">
+        <legend><span class="step">2</span> Ancestry</legend>
+        <div class="choice-grid" data-race-grid></div>
+      </fieldset>
+
+      <fieldset class="panel">
+        <legend><span class="step">3</span> Class</legend>
+        <div class="choice-grid choice-grid--class" data-class-grid></div>
+      </fieldset>
+
+      <fieldset class="panel">
+        <legend><span class="step">4</span> Background</legend>
+        <div class="row">
+          <label class="field grow">Before adventuring, you were a…
+            <select name="background" data-background></select>
+          </label>
+        </div>
+        <p class="hint" data-background-note></p>
+      </fieldset>
+
+      <fieldset class="panel">
+        <legend><span class="step">5</span> Ability scores</legend>
+        <div class="row row--wrap">
+          <div class="segmented" role="radiogroup" aria-label="Score method">
+            <label><input type="radio" name="scoreMethod" value="array" checked> Standard array</label>
+            <label><input type="radio" name="scoreMethod" value="roll"> Roll 4d6</label>
+          </div>
+          <button type="button" class="btn btn--small" data-action="reroll" hidden>Reroll</button>
+        </div>
+        <p class="hint">Scores are placed to suit your class. Tap two scores to swap them.</p>
+        <div class="score-grid" data-score-grid></div>
+      </fieldset>
+
+      <fieldset class="panel">
+        <legend><span class="step">6</span> Skills</legend>
+        <p class="hint" data-skill-note></p>
+        <div class="skill-pick" data-skill-grid></div>
+      </fieldset>
+
+      <fieldset class="panel">
+        <legend><span class="step">7</span> The adventure</legend>
+        <div class="hook-list" data-hook-list></div>
+      </fieldset>
+    </div>
+
+    <aside class="create-side">
+      <div class="panel portrait-panel">
+        <div class="portrait-frame">
+          <canvas class="portrait" data-create-portrait width="400" height="500" aria-label="Painted portrait of your hero"></canvas>
+          <div class="portrait-busy" data-portrait-busy hidden>Painting…</div>
+        </div>
+        <div class="row row--center">
+          <button type="button" class="btn btn--small" data-action="paint">Paint portrait</button>
+          <button type="button" class="btn btn--small btn--ghost" data-action="repaint">Another take</button>
+        </div>
+        <p class="hint" data-portrait-note></p>
+      </div>
+      <div class="panel summary-panel" data-create-summary></div>
+      <p class="form-error" data-create-error role="alert"></p>
+      <button type="submit" class="btn btn--primary btn--block">Begin the adventure</button>
+    </aside>
+  </form>
+</section>
+
+<!-- ============================================================ game -->
+<section id="screen-game" class="screen screen--game" hidden>
+  <header class="topbar">
+    <div class="topbar__left">
+      <button class="icon-btn" data-action="menu" aria-label="Menu">☰</button>
+      <span class="topbar__title">Dicebound</span>
+    </div>
+    <div class="topbar__mid">
+      <span class="badge" data-phase-badge></span>
+      <span class="badge badge--muted" data-turn></span>
+      <span class="badge badge--muted" data-location></span>
+    </div>
+    <div class="topbar__right">
+      <span class="badge" data-dm-badge></span>
+      <button class="icon-btn sheet-toggle" data-action="toggle-sheet" aria-label="Character sheet">☗</button>
+    </div>
+  </header>
+
+  <div class="game-layout">
+    <main class="story">
+      <div class="log" data-log aria-live="polite"></div>
+      <div class="composer">
+        <div class="suggestions" data-suggestions></div>
+        <form class="input-row" data-input-form>
+          <label class="visually-hidden" for="action-input">What do you do?</label>
+          <textarea id="action-input" rows="1" maxlength="500" placeholder="What do you do?" data-input></textarea>
+          <button class="btn btn--primary" type="submit" data-send>Act</button>
+        </form>
+      </div>
+    </main>
+
+    <aside class="sheet" data-sheet>
+      <div class="sheet__head">
+        <canvas class="portrait portrait--small" data-sheet-portrait width="400" height="500"></canvas>
+        <div>
+          <h2 class="sheet__name" data-hero-name></h2>
+          <p class="sheet__sub" data-hero-sub></p>
+        </div>
+      </div>
+      <div class="bars">
+        <div class="bar bar--hp"><span class="bar__fill" data-hp-fill></span><span class="bar__label" data-hp-label></span></div>
+        <div class="bar bar--xp"><span class="bar__fill" data-xp-fill></span><span class="bar__label" data-xp-label></span></div>
+      </div>
+      <div class="quick-stats" data-quick-stats></div>
+      <div class="ability-row" data-abilities></div>
+
+      <section class="sheet__sec">
+        <h3>Quest</h3>
+        <p class="quest" data-quest></p>
+      </section>
+
+      <section class="sheet__sec">
+        <h3>Powers <span class="res" data-resources></span></h3>
+        <div class="power-list" data-powers></div>
+      </section>
+
+      <section class="sheet__sec" data-enemy-sec hidden>
+        <h3>Foes</h3>
+        <div class="enemy-list" data-enemies></div>
+      </section>
+
+      <section class="sheet__sec">
+        <h3>Pack <span class="res" data-gold></span></h3>
+        <ul class="inv" data-inventory></ul>
+      </section>
+
+      <section class="sheet__sec">
+        <h3>Skills</h3>
+        <ul class="skills" data-skills></ul>
+      </section>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================================================ dialogs -->
+<dialog class="modal" id="dlg-settings">
+  <form method="dialog" class="modal__body" data-settings-form>
+    <h2 class="display">The Dungeon Master</h2>
+    <p>Dicebound can use <strong>Claude</strong> as your Dungeon Master — it understands anything you type, voices characters and remembers your story. Without it, a built-in offline DM runs the game with simpler, keyword-based storytelling. The dice and rules are identical either way.</p>
+
+    <div class="segmented" role="radiogroup" aria-label="Dungeon Master">
+      <label><input type="radio" name="dmMode" value="ai"> Claude (your API key)</label>
+      <label><input type="radio" name="dmMode" value="offline"> Offline DM</label>
+    </div>
+
+    <div data-ai-fields>
+      <label class="field">Anthropic API key
+        <input type="password" name="apiKey" autocomplete="off" spellcheck="false" placeholder="sk-ant-…">
+      </label>
+      <label class="field">Model
+        <select name="model" data-model-select></select>
+      </label>
+      <p class="hint">Your key is stored only in this browser (localStorage) and sent only to Anthropic's API. Each turn makes two requests, billed to your key. Get a key at <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a>. Don't use this on a shared computer.</p>
+      <div class="row">
+        <button type="button" class="btn btn--small" data-action="test-key">Test connection</button>
+        <button type="button" class="btn btn--small btn--ghost" data-action="forget-key">Forget key</button>
+      </div>
+      <p class="test-result" data-test-result role="status"></p>
+    </div>
+
+    <div class="modal__actions">
+      <button class="btn btn--primary" value="save">Save</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="modal" id="dlg-menu">
+  <form method="dialog" class="modal__body">
+    <h2 class="display">Menu</h2>
+    <div class="menu-list">
+      <button type="button" class="btn btn--block" data-action="settings">Dungeon Master settings</button>
+      <button type="button" class="btn btn--block" data-action="export">Download save file</button>
+      <label class="btn btn--block file-btn">Load save file<input type="file" accept="application/json,.json" data-import hidden></label>
+      <button type="button" class="btn btn--block" data-action="to-title">Title screen</button>
+      <button type="button" class="btn btn--block btn--danger" data-action="abandon">Abandon this hero</button>
+    </div>
+    <div class="modal__actions"><button class="btn btn--ghost" value="close">Close</button></div>
+  </form>
+</dialog>
+
+<dialog class="modal modal--levelup" id="dlg-levelup">
+  <form method="dialog" class="modal__body" data-levelup-body></form>
+</dialog>
+
+<dialog class="modal" id="dlg-death">
+  <div class="modal__body death">
+    <h2 class="display">Here ends the tale</h2>
+    <p data-death-text></p>
+    <div class="modal__actions">
+      <button class="btn btn--primary" data-action="new">Roll a new hero</button>
+      <button class="btn btn--ghost" data-action="close-death">Read the story</button>
+    </div>
+  </div>
+</dialog>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
